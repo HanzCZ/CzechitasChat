@@ -30,24 +30,6 @@ public class ChatActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        if (!getIntent().hasExtra(Constants.USER_NAME) || getIntent().getStringExtra(Constants.USER_NAME).isEmpty() || getIntent().getStringExtra(Constants.USER_NAME).equals("")) {
-            AlertDialog.Builder builder;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
-            } else {
-                builder = new AlertDialog.Builder(this);
-            }
-            builder.setTitle("Neznamy uživatel")
-                    .setMessage("Běž na uvodní obrazovku a přihlaš se")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-        }
-
         name = getIntent().getStringExtra(Constants.USER_NAME);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
